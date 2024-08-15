@@ -1,0 +1,47 @@
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 20px; 
+}
+
+.image-rick {
+  width: 100px; 
+  height: 100px;
+  animation: zoom 4s infinite; 
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6)); }
+
+
+.image-morty {
+  width: 100px; 
+  height: 100px;
+  animation: zoom 3s infinite; 
+  filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.6)); 
+}
+
+.loading-text {
+  font-size: 45px;
+  font-weight: bold; 
+  font-family: var(--font-alternative);
+  color: green;
+  text-align: center; 
+}
+
+
+@keyframes zoom {
+  0%, 100% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(1.2); 
+  }
+}

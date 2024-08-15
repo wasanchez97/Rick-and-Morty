@@ -1,0 +1,63 @@
+
+.app{
+    flex-direction: column;
+    gap: 2em;
+    .app_body{
+        padding: 1em 3em;
+    }
+
+}
+.loader{
+    display: flex;
+    justify-content: center;
+}
+.form{
+    margin-bottom: 1.5em;
+    text-align: center;
+    .form_input{
+        padding: 0.5em 0.2em;
+        border-radius: 0.5em 0 0 0.5em;
+        width: 15em;
+    }
+    .form_btn{
+        padding: 0.5em 0.8em;
+        background-color: #04a904;
+        color: #fff;
+        font-weight: 500;
+        border-radius: 0 0.5em 0.5em 0;
+        transition: background-color .5s ease;
+        &:hover{
+            background-color: var(--secondary-color);
+        }
+    }
+}
+
+
+.cards_container{
+    gap: 2em;
+    padding-bottom: 3em;
+    flex-wrap: wrap;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .pagination button.active {
+    background-color: #007bff;
+    color: white;
+  }
