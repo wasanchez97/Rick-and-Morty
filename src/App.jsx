@@ -77,24 +77,24 @@ function App() {
       setLocationID(selectedLocation ? selectedLocation.id : null);
       setErrorMessage(selectedLocation ? '' : 'No location found with that name');
       inputName.current.value = '';
-      setCurrentPage(1); // Resetear la página a 1
+      setCurrentPage(1); 
     }
   };
 
   const inputName = useRef();
 
-  // Obtener las tarjetas actuales basadas en la paginación
+ 
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = location?.residents.slice(indexOfFirstCard, indexOfLastCard);
 
-  // Cambiar de página
+  
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className='app flex-container'>
       <header className='app_hero'>
-        <img className='hero_image' src='/img/RickandMorty.png' alt='Hero Image' />
+        <img className='hero_image' src='img/RickandMorty.png' alt='Hero Image' />
       </header>
       <section className='app_body'>
         <form className='form' onSubmit={handleSubmit}>
