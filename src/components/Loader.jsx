@@ -6,9 +6,9 @@ const Loader = () => {
   return (
     <div className='loader'>
       <div className='container'>
-        <img src='/img/Rick.png' alt='Rick' className='image-rick'/>
+        <img src='img/Rick.png' alt='Rick' className='image-rick'/>
         <span className='loading-text'>Loading...</span>
-        <img src='/img/Morty.png' alt='Morty' className='image-morty' />
+        <img src='img/Morty.png' alt='Morty' className='image-morty' />
       </div>
     </div>
   );
