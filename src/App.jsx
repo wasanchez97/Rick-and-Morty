@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import useFetch from './hooks/UseFetch';
+import useFetch from './hooks/useFetch';
 import GetRandomNumbers from './helpers/getRandomNumber';
 import LocationInfo from './components/LocationInfo';
 import ResidentCard from './components/ResidentCard';
