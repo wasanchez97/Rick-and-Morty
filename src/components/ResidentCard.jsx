@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useFetch from '../hooks/UseFetch'
+import useFetch from '../hooks/useFetch'
 import './styles/ResidentCard.css'
 
 
