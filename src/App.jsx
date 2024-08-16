@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-import useFetch from './hooks/UseFetch';
+import useFetch from './hooks/useFetch';
 import GetRandomNumbers from './helpers/getRandomNumber';
 import LocationInfo from './components/LocationInfo';
 import ResidentCard from './components/ResidentCard';
@@ -13,8 +13,8 @@ function App() {
   const [showLoader, setShowLoader] = useState(true);
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const [loadingStarted, setLoadingStarted] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1); // Página actual
-  const cardsPerPage = 8; // Máximo de tarjetas por página
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 8;
 
   const url = `https://rickandmortyapi.com/api/location/${locationID}`;
   const [location, getLocation, hasError, isLoading] = useFetch(url);
@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     const handleImagesLoad = () => {
       if (location && location.residents) {
-        const imagePromises = location.residents.map(url => new Promise(resolve => {
+        const imagePromises = location.residents.slice(indexOfFirstCard, indexOfLastCard).map(url => new Promise(resolve => {
           const img = new Image();
           img.src = url;
           img.onload = () => resolve();
@@ -57,14 +57,13 @@ function App() {
 
         Promise.all(imagePromises).then(() => {
           setAllImagesLoaded(true);
+          setShowLoader(false);  // Desactiva el loader después de que todas las imágenes se carguen
         });
-      } else {
-        setAllImagesLoaded(true);
       }
     };
 
     handleImagesLoad();
-  }, [location]);
+  }, [location, currentPage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,19 +76,23 @@ function App() {
       setLocationID(selectedLocation ? selectedLocation.id : null);
       setErrorMessage(selectedLocation ? '' : 'No location found with that name');
       inputName.current.value = '';
-      setCurrentPage(1); // Resetear la página a 1
+      setCurrentPage(1);
     }
   };
 
   const inputName = useRef();
 
-  // Obtener las tarjetas actuales basadas en la paginación
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = location?.residents.slice(indexOfFirstCard, indexOfLastCard);
 
-  // Cambiar de página
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setShowLoader(true);  // Activa el loader
+    setCurrentPage(pageNumber);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 1000);
+  };
 
   return (
     <div className='app flex-container'>
