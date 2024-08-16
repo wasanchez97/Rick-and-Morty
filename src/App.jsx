@@ -57,7 +57,7 @@ function App() {
 
         Promise.all(imagePromises).then(() => {
           setAllImagesLoaded(true);
-          setShowLoader(false);  // Desactiva el loader después de que todas las imágenes se carguen
+          setShowLoader(false); 
         });
       }
     };
