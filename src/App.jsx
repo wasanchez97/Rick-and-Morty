@@ -97,7 +97,7 @@ function App() {
   return (
     <div className='app flex-container'>
       <header className='app_hero'>
-        <img className='hero_image' src='/img/RickandMorty.png' alt='Hero Image' />
+        <img className='hero_image' src='img/RickandMorty.png' alt='Hero Image' />
       </header>
       <section className='app_body'>
         <form className='form' onSubmit={handleSubmit}>
